@@ -73,7 +73,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/scanner');
                 },
                 child: const Text(
                   'Pindai Kode QR',

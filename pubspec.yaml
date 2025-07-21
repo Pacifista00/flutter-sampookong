@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  mobile_scanner: ^6.0.0
+  just_audio: ^0.10.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -90,3 +92,5 @@ flutter:
   assets:
   - assets/images/logo.png
   - assets/images/ilustrasi.png
+  - assets/images/gerbang.png
+  - assets/audios/gerbang.mp3
