@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class QrScreen extends StatefulWidget {
   const QrScreen({super.key});
@@ -21,9 +22,9 @@ class _QrScreenState extends State<QrScreen> {
         if (code == 't0urgu1de') {
           Navigator.pushReplacementNamed(context, '/home');
         } else {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text('Kode tidak dikenali: $code')));
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('${'scan_failed'.tr()} : $code')),
+          );
 
           Future.delayed(const Duration(seconds: 2), () {
             setState(() => _isScanned = false);
@@ -37,7 +38,7 @@ class _QrScreenState extends State<QrScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Scan QR')),
+      appBar: AppBar(title: Text('scan_qr'.tr())),
       body: Stack(
         children: [
           MobileScanner(
@@ -46,12 +47,12 @@ class _QrScreenState extends State<QrScreen> {
             ),
             onDetect: _handleScan,
           ),
-          const Align(
+          Align(
             alignment: Alignment.topCenter,
             child: Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                'Arahkan kamera ke QR Code',
+                'scan_instructions'.tr(),
                 style: TextStyle(fontSize: 18, color: Colors.white),
               ),
             ),

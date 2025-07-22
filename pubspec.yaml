@@ -33,6 +33,7 @@ dependencies:
   mobile_scanner: ^6.0.0
   just_audio: ^0.10.4
   panorama_viewer: ^2.0.4
+  easy_localization: ^3.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -101,3 +102,4 @@ flutter:
   - assets/images/panorama3.jpg
   - assets/images/gerbang.png
   - assets/audios/gerbang.mp3
+  - assets/langs/

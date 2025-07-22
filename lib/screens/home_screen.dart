@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,8 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _toggleAudio() async {
     try {
       if (!_player.playing) {
-        // Jika belum play, set asset dulu
-        await _player.setAsset('assets/audios/gerbang.mp3');
+        final lang = context.locale.languageCode;
+
+        // Gunakan file default jika bahasa Indonesia
+        final audioPath =
+            lang == 'en'
+                ? 'assets/audios/en-gerbang.mp3'
+                : 'assets/audios/gerbang.mp3';
+
+        await _player.setAsset(audioPath);
         await _player.play();
       } else {
         await _player.stop();
@@ -85,8 +93,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               const SizedBox(height: 60),
-              const Text(
-                'Sam Poo Kong merupakan klenteng bersejarah yang mencerminkan perpaduan budaya Tionghoa dan Jawa, dibangun di lokasi yang diyakini pernah disinggahi Laksamana Zheng He pada tahun 1416. Tempat ini berasal dari gua batu yang dijadikan tempat ibadah, dan kini telah berkembang menjadi kompleks klenteng yang megah, dengan pembangunan ulang gedung utamanya pada tahun 2002–2005.',
+              Text(
+                'sampookong_description'.tr(),
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.normal,
@@ -106,8 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/gallery');
                 },
-                child: const Text(
-                  'Lanjutkan',
+                child: Text(
+                  'next'.tr(),
                   style: TextStyle(fontSize: 20, color: Color(0xFF414042)),
                 ),
               ),

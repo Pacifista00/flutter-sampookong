@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class GalleryScreen extends StatelessWidget {
   const GalleryScreen({super.key});
@@ -6,7 +7,7 @@ class GalleryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Galeri')),
+      appBar: AppBar(title: Text('gallery'.tr())),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -55,7 +56,7 @@ class GalleryScreen extends StatelessWidget {
                 Navigator.pushNamed(context, routeName);
               },
               icon: const Icon(Icons.search),
-              label: const Text('Telusuri'),
+              label: Text('explore'.tr()),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black.withOpacity(0.6),
                 foregroundColor: Colors.white,

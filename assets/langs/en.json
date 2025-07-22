@@ -1,0 +1,11 @@
+{
+  "welcome": "Welcome",
+  "description": "to the Sam Poo Kong Semarang Tour Guide!",
+  "scan_qr": "Scan QR Code",
+  "scan_instructions": "Point the Camera at the QR Code",
+  "scan_failed": "Code not recognized :",
+  "sampookong_description": "Sam Poo Kong is a historic temple that reflects a blend of Chinese and Javanese culture, built on a site believed to have been visited by Admiral Zheng He in 1416. This place originated as a stone cave used as a place of worship, and has now developed into a magnificent temple complex, with the main building being rebuilt in 2002–2005.",
+  "next": "Next",
+  "gallery": "Gallery",
+  "explore": "Explore"
+}

@@ -1,0 +1,11 @@
+{
+  "welcome": "Selamat Datang",
+  "description": "di Tour Guide Sam Poo Kong Semarang!",
+  "scan_qr": "Pindai Kode QR",
+  "scan_instructions": "Arahkan Kamera ke QR Code",
+  "scan_failed": "Kode tidak dikenali :",
+  "sampookong_description": "Sam Poo Kong merupakan klenteng bersejarah yang mencerminkan perpaduan budaya Tionghoa dan Jawa, dibangun di lokasi yang diyakini pernah disinggahi Laksamana Zheng He pada tahun 1416. Tempat ini berasal dari gua batu yang dijadikan tempat ibadah, dan kini telah berkembang menjadi kompleks klenteng yang megah, dengan pembangunan ulang gedung utamanya pada tahun 2002–2005.",
+  "next": "Lanjutkan",
+  "gallery": "Galeri",
+  "explore": "Telusuri"
+}
