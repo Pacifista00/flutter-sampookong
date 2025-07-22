@@ -58,7 +58,7 @@ class GalleryScreen extends StatelessWidget {
               icon: const Icon(Icons.search),
               label: Text('explore'.tr()),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black.withOpacity(0.6),
+                backgroundColor: const Color.fromRGBO(0, 0, 0, 0.6),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,

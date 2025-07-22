@@ -28,13 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _toggleAudio() async {
     try {
       if (!_player.playing) {
-        final lang = context.locale.languageCode;
+        final langCode = context.locale.languageCode; // "id", "en"
+        String audioPath;
 
-        // Gunakan file default jika bahasa Indonesia
-        final audioPath =
-            lang == 'en'
-                ? 'assets/audios/en-gerbang.mp3'
-                : 'assets/audios/gerbang.mp3';
+        if (langCode == 'en') {
+          audioPath = 'assets/audios/gerbang-en.mp3';
+        } else {
+          // Default (Indonesia atau lainnya)
+          audioPath = 'assets/audios/gerbang.mp3';
+        }
 
         await _player.setAsset(audioPath);
         await _player.play();
@@ -42,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         await _player.stop();
       }
     } catch (e) {
-      print("Error playing audio: $e");
+      // print("Error playing audio: $e");
     }
   }
 

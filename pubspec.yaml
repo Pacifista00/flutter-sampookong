@@ -34,6 +34,8 @@ dependencies:
   just_audio: ^0.10.4
   panorama_viewer: ^2.0.4
   easy_localization: ^3.0.1
+  video_player: ^2.8.2 # Sesuaikan dengan versi terbaru yang stabil
+  chewie: ^1.7.4 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -92,14 +94,7 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
   assets:
-  - assets/images/logo.png
-  - assets/images/ilustrasi.png
-  - assets/images/thumbnail1.png
-  - assets/images/thumbnail2.png
-  - assets/images/thumbnail3.png
-  - assets/images/panorama1.jpg
-  - assets/images/panorama2.jpg
-  - assets/images/panorama3.jpg
-  - assets/images/gerbang.png
-  - assets/audios/gerbang.mp3
+  - assets/images/
+  - assets/audios/
   - assets/langs/
+  - assets/videos/
