@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:sampookong/main.dart';
 
 class QrScreen extends StatefulWidget {
   const QrScreen({super.key});
@@ -9,7 +10,7 @@ class QrScreen extends StatefulWidget {
   State<QrScreen> createState() => _QrScreenState();
 }
 
-class _QrScreenState extends State<QrScreen> {
+class _QrScreenState extends State<QrScreen> with RouteAware {
   bool _isScanned = false;
 
   void _handleScan(BarcodeCapture capture) {
@@ -20,7 +21,7 @@ class _QrScreenState extends State<QrScreen> {
         setState(() => _isScanned = true);
 
         if (code == 't0urgu1de') {
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushNamed(context, '/home');
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('${'scan_failed'.tr()} : $code')),
@@ -36,6 +37,24 @@ class _QrScreenState extends State<QrScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context)! as PageRoute);
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPopNext() {
+    // Dipanggil saat kembali ke halaman ini dari halaman lain
+    setState(() => _isScanned = false);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('scan_qr'.tr())),
@@ -43,7 +62,7 @@ class _QrScreenState extends State<QrScreen> {
         children: [
           MobileScanner(
             controller: MobileScannerController(
-              detectionSpeed: DetectionSpeed.noDuplicates,
+              detectionSpeed: DetectionSpeed.normal,
             ),
             onDetect: _handleScan,
           ),

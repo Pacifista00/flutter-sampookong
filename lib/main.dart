@@ -9,6 +9,7 @@ import 'screens/welcome_screen.dart';
 import 'screens/gallery_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      navigatorObservers: [routeObserver],
       title: 'Tour Guide',
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

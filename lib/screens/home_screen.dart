@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/gallery');
+                  Navigator.pushNamed(context, '/gallery');
                 },
                 child: Text(
                   'next'.tr(),
