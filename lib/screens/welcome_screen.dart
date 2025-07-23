@@ -69,7 +69,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/scanner');
+                  Navigator.pushNamed(context, '/scanner');
                 },
                 child: Text(
                   'scan_qr'.tr(),
