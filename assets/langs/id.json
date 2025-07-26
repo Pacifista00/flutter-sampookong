@@ -7,5 +7,13 @@
   "sampookong_description": "Sam Poo Kong merupakan klenteng bersejarah yang mencerminkan perpaduan budaya Tionghoa dan Jawa, dibangun di lokasi yang diyakini pernah disinggahi Laksamana Zheng He pada tahun 1416. Tempat ini berasal dari gua batu yang dijadikan tempat ibadah, dan kini telah berkembang menjadi kompleks klenteng yang megah, dengan pembangunan ulang gedung utamanya pada tahun 2002–2005.",
   "next": "Lanjutkan",
   "gallery": "Galeri",
-  "explore": "Telusuri"
+  "explore": "Telusuri",
+  "rating": "Halaman Rating",
+  "rate_info": "Isi semua field dan pilih rating",
+  "rate_success": "Rating berhasil dikirim",
+  "rate_failed": "Gagal mengirim rating",
+  "rate_instructions": "Beri penilaian kamu:",
+  "rate_name": "Nama",
+  "rate_desc": "Deskripsi",
+  "rate_send": "Kirim"
 }

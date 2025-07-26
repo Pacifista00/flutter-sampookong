@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:sampookong/components/floating_rating_button.dart';
 
 class GalleryScreen extends StatelessWidget {
   const GalleryScreen({super.key});
@@ -30,6 +31,7 @@ class GalleryScreen extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: const FloatingRatingButton(),
     );
   }
 

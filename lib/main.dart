@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sampookong/panorama/panorama1_screen.dart';
 import 'package:sampookong/panorama/panorama2_screen.dart';
 import 'package:sampookong/panorama/panorama3_screen.dart';
+import 'package:sampookong/screens/rating_screen.dart';
 import 'screens/qr_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         '/panorama1': (context) => const Panorama1Screen(),
         '/panorama2': (context) => const Panorama2Screen(),
         '/panorama3': (context) => const Panorama3Screen(),
+        '/rating': (context) => const RatingScreen(),
       },
     );
   }
