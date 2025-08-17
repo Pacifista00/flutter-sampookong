@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:sampookong/components/floating_rating_button.dart';
+import 'package:sampookong/helper/navigation_helper_gallery.dart';
 
 class GalleryScreen extends StatelessWidget {
   const GalleryScreen({super.key});
@@ -55,7 +56,7 @@ class GalleryScreen extends StatelessWidget {
             right: 12,
             child: ElevatedButton.icon(
               onPressed: () {
-                Navigator.pushNamed(context, routeName);
+                pushNamedSlide(context, routeName);
               },
               icon: const Icon(Icons.search),
               label: Text('explore'.tr()),

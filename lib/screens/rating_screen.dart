@@ -25,7 +25,7 @@ class _RatingScreenState extends State<RatingScreen> {
 
   Future<void> _fetchRatings() async {
     final response = await http.get(
-      Uri.parse('http://10.112.102.121:8000/api/ratings'),
+      Uri.parse('https://sampookong.my.id/api/ratings'),
     );
     if (response.statusCode == 200) {
       setState(() {
@@ -50,7 +50,7 @@ class _RatingScreenState extends State<RatingScreen> {
     }
 
     final response = await http.post(
-      Uri.parse('http://10.112.102.121:8000/api/ratings/add'),
+      Uri.parse('https://sampookong.my.id/api/ratings/add'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'nama': nama,
@@ -119,8 +119,10 @@ class _RatingScreenState extends State<RatingScreen> {
             const SizedBox(height: 6),
             Row(
               children: List.generate(5, (i) {
+                final ratingValue =
+                    int.tryParse(item['rating'].toString()) ?? 0;
                 return Icon(
-                  i < (item['rating'] ?? 0) ? Icons.star : Icons.star_border,
+                  i < ratingValue ? Icons.star : Icons.star_border,
                   size: 20,
                   color: Colors.orange,
                 );

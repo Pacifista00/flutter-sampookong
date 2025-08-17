@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:sampookong/screens/public/detail_screen.dart';
+import 'package:video_player/video_player.dart';
+import 'package:sampookong/helper/navigation_helper.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,47 +12,53 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final AudioPlayer _player = AudioPlayer();
+  late VideoPlayerController _controller;
   bool isPlaying = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Pantau perubahan status playing
-    _player.playerStateStream.listen((state) {
-      setState(() {
-        isPlaying = state.playing;
-      });
-    });
-  }
+  bool isInitialized = false;
 
   Future<void> _toggleAudio() async {
     try {
-      if (!_player.playing) {
-        final langCode = context.locale.languageCode; // "id", "en"
-        String audioPath;
-
-        if (langCode == 'en') {
-          audioPath = 'assets/audios/gerbang-en.mp3';
-        } else {
-          // Default (Indonesia atau lainnya)
-          audioPath = 'assets/audios/gerbang.mp3';
-        }
-
-        await _player.setAsset(audioPath);
-        await _player.play();
+      if (isInitialized && _controller.value.isPlaying) {
+        await _controller.pause();
+        setState(() {
+          isPlaying = false;
+        });
       } else {
-        await _player.stop();
+        final langCode = context.locale.languageCode; // "id", "en"
+        String audioPath =
+            langCode == 'en'
+                ? 'assets/videos/en-gerbang.mp4'
+                : 'assets/videos/id-gerbang.mp4';
+
+        _controller = VideoPlayerController.asset(audioPath);
+        await _controller.initialize();
+        await _controller.setLooping(false);
+        await _controller.play();
+
+        setState(() {
+          isPlaying = true;
+          isInitialized = true;
+        });
+
+        _controller.addListener(() {
+          if (!_controller.value.isPlaying &&
+              _controller.value.position >= _controller.value.duration) {
+            setState(() {
+              isPlaying = false;
+            });
+          }
+        });
       }
     } catch (e) {
-      // print("Error playing audio: $e");
+      print("Error playing mp4 audio: $e");
     }
   }
 
   @override
   void dispose() {
-    _player.dispose();
+    if (isInitialized) {
+      _controller.dispose();
+    }
     super.dispose();
   }
 
@@ -114,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/gallery');
+                  pushSlide(context, const DetailScreen(), fromRight: true);
                 },
                 child: Text(
                   'next'.tr(),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:sampookong/main.dart';
+import 'package:sampookong/helper/navigation_helper.dart';
+import 'package:sampookong/screens/gallery_screen.dart';
 
 class QrScreen extends StatefulWidget {
   const QrScreen({super.key});
@@ -21,7 +23,7 @@ class _QrScreenState extends State<QrScreen> with RouteAware {
         setState(() => _isScanned = true);
 
         if (code == 't0urgu1de') {
-          Navigator.pushNamed(context, '/home');
+          pushSlide(context, const GalleryScreen(), fromRight: true);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('${'scan_failed'.tr()} : $code')),

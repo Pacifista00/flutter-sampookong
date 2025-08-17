@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:sampookong/helper/navigation_helper.dart';
+import 'package:sampookong/screens/public/home_screen.dart';
+import 'package:sampookong/screens/qr_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -69,10 +72,30 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/scanner');
+                  pushSlide(context, const HomeScreen(), fromRight: true);
                 },
                 child: Text(
-                  'scan_qr'.tr(),
+                  'public'.tr(),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFF414042),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFEDE00),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 14,
+                  ),
+                ),
+                onPressed: () {
+                  pushSlide(context, const QrScreen(), fromRight: true);
+                },
+                child: Text(
+                  'private'.tr(),
                   style: const TextStyle(
                     fontSize: 20,
                     color: Color(0xFF414042),
